@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block titre %}A propos{% endblock %}
+
+{% block contenu %}
+<style>
+  .apropos-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .section h2 {
+    color: #1d4e89;
+    margin-top: 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #e8ecf1;
+    padding-bottom: 8px;
+  }
+  .projet-titre {
+    font-style: italic;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .eleves {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .eleve {
+    background: #f0f4f8;
+    border-left: 4px solid #1d4e89;
+    padding: 10px 16px;
+    border-radius: 0 6px 6px 0;
+    flex: 1;
+    min-width: 200px;
+  }
+  .eleve strong {
+    display: block;
+    color: #1d4e89;
+    font-size: 0.95rem;
+  }
+  .eleve span {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  .encadrants {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .encadrant {
+    background: #f0f4f8;
+    border-left: 4px solid #9cc3e5;
+    padding: 10px 16px;
+    border-radius: 0 6px 6px 0;
+    flex: 1;
+    min-width: 200px;
+  }
+  .encadrant strong {
+    display: block;
+    color: #142d4c;
+    font-size: 0.95rem;
+  }
+  .encadrant span {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  .contexte p {
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+  }
+  .promo {
+    display: inline-block;
+    background: #1d4e89;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+</style>
+
+<div class="apropos-container">
+
+  <div class="section">
+    <h2>PROJET DE FIN D'ETUDES</h2>
+    <p class="projet-titre">
+      "Etude contributive pour l'elaboration d'un plan de contingence
+      des services de Telecommunications. Cas du centre de Dakar."
+    </p>
+    <span class="promo">Cycle EAC TELECOM — Promotion 2024</span>
+  </div>
+
+  <div class="section">
+    <h2>AUTEURS</h2>
+    <div class="eleves">
+      <div class="eleve">
+        <strong>NDONG AYABA Arsenio Crispin</strong>
+        <span>Eleve — Cycle EAC TELECOM</span>
+      </div>
+      <div class="eleve">
+        <strong>VELO NTSARA Maholida Jean</strong>
+        <span>Eleve — Cycle EAC TELECOM</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>ENCADRANTS</h2>
+    <div class="encadrants">
+      <div class="encadrant">
+        <strong>M. NGAROBAYE Dieudonne</strong>
+        <span>Chef Unite Telecom — EAMAC</span>
+      </div>
+      <div class="encadrant">
+        <strong>M. IRO Mourtala</strong>
+        <span>Chef Unite Telecom — Niamey</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section contexte">
+    <h2>CONTEXTE</h2>
+    <p>
+      Cette application a été développée dans le cadre d'un projet de fin
+      d'études à l'EAMAC (École Africaine de la Météorologie et de
+      l'Aviation Civile), au sein de l'ASECNA (Agence pour la Sécurité de
+      la Navigation Aérienne en Afrique et à Madagascar).
+    </p>
+    <br>
+    <p>
+      Elle constitue une recommandation et une contribution pratique pour
+      la gestion des situations de contingence des services de
+      Télécommunications du centre de Dakar, pouvant aussi s'appliquer à d'autres centres ASECNA dans la même situation. En cas de contingence totale 
+       des systèmes principaux de transmission de messages, ce système permet d'assurer la continuité des communications opérationnelles essentielles pour la sécurité de la navigation aérienne à travers <strong>l'acheminement automatique d'emails</strong> 
+      vers les destinataires appropriés selon des règles prédéfinies.
+    </p>
+  </div>
+
+</div>
+{% endblock %}

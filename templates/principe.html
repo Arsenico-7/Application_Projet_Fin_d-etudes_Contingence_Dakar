@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block titre %}Principe de fonctionnement{% endblock %}
+
+{% block contenu %}
+<style>
+  .principe-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .etape {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .numero {
+    background: #1d4e89;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 800;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .etape-contenu h3 {
+    margin: 0 0 6px;
+    color: #1d4e89;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+  .etape-contenu p {
+    margin: 0;
+    color: #444;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  .schema {
+    background: #0d1b2a;
+    color: #9cc3e5;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+  .schema span {
+    color: #fff;
+  }
+  .fleche {
+    color: #9cc3e5;
+    margin: 0 8px;
+    font-size: 1.2rem;
+  }
+  .note {
+    background: #f0f4f8;
+    border-left: 4px solid #1d4e89;
+    padding: 14px 18px;
+    border-radius: 0 6px 6px 0;
+    color: #444;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-top: 8px;
+  }
+</style>
+
+<div class="principe-container">
+
+  <h1>Principe de fonctionnement</h1>
+
+  <div class="schema">
+    <span>Gmail</span>
+    <span class="fleche">→</span>
+    <span>Lecture IMAP</span>
+    <span class="fleche">→</span>
+    <span>Règles</span>
+    <span class="fleche">→</span>
+    <span>Resend</span>
+    <span class="fleche">→</span>
+    <span>Destinataires</span>
+  </div>
+
+  <div class="etape">
+    <div class="numero">1</div>
+    <div class="etape-contenu">
+      <h3>RÉCEPTION DE L'EMAIL</h3>
+      <p>Un email arrive dans la boîte Gmail configurée. Le système surveille cette boîte en permanence, en se connectant toutes les 30 secondes via le protocole IMAP (Internet Message Access Protocol), qui permet de lire les emails sans les télécharger définitivement.</p>
+    </div>
+  </div>
+
+  <div class="etape">
+    <div class="numero">2</div>
+    <div class="etape-contenu">
+      <h3>DÉTECTION DES EMAILS NON LUS</h3>
+      <p>À chaque cycle, l'application récupère <strong>uniquement les emails marqués comme "non lus"</strong> (UNSEEN), afin d'éviter de traiter plusieurs fois le même message. Une fois lu, l'email ne sera plus retraité lors des cycles suivants.</p>
+    </div>
+  </div>
+
+  <div class="etape">
+    <div class="numero">3</div>
+    <div class="etape-contenu">
+      <h3>APPLICATION DES RÈGLES</h3>
+      <p>Pour chaque email, le système vérifie d'abord si un <strong>mot-clé</strong> défini dans les règles apparaît dans le sujet ou le corps du message (priorité haute). Si aucun mot-clé ne correspond, il vérifie ensuite si <strong>l'expéditeur</strong> est reconnu. Si aucune règle ne correspond, l'email n'est pas transféré et un message est affiché dans le terminal.</p>
+    </div>
+  </div>
+
+  <div class="etape">
+    <div class="numero">4</div>
+    <div class="etape-contenu">
+      <h3>TRANSFERT VIA RESEND</h3>
+      <p>Si une règle correspond, l'email est retransmis aux destinataires définis, via l'API de Resend, depuis l'adresse <strong>contingence@projet.courses</strong>. Le sujet original est conservé, avec le préfixe <strong>[Transféré]</strong> ajouté automatiquement.</p>
+    </div>
+  </div>
+
+  <div class="etape">
+    <div class="numero">5</div>
+    <div class="etape-contenu">
+      <h3>ENREGISTREMENT DANS LE JOURNAL</h3>
+      <p>Chaque transfert réussi est enregistré dans une base de données locale (SQLite), avec la date, l'expéditeur, le sujet et les destinataires. Ces informations sont consultables à tout moment sur la page <strong>Journal</strong> du tableau de bord.</p>
+    </div>
+  </div>
+
+  <div class="etape">
+    <div class="numero">6</div>
+    <div class="etape-contenu">
+      <h3>TABLEAU DE BORD WEB</h3>
+      <p>Une interface web (ce tableau de bord) permet de consulter l'historique des transferts, de visualiser les règles actives, et de comprendre le fonctionnement du système, sans avoir besoin d'accéder au code source ou au terminal.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Note :</strong> Les deux composants de l'application (le programme de transfert <code>app.py</code> et le tableau de bord web <code>web.py</code>) fonctionnent de manière indépendante et doivent être lancés séparément dans deux terminaux distincts.
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+resend
+python-dotenv
+fastapi
+uvicorn
+jinja2

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block titre %}Regles{% endblock %}
+
+{% block contenu %}
+  <h1>Regles de transfert</h1>
+  <p>Configuration actuelle, lue depuis <code>regles.py</code>.</p>
+
+  <h2>Par expediteur</h2>
+  {% if regles_expediteur %}
+  <table>
+    <thead><tr><th>Expediteur</th><th>Destinataires</th></tr></thead>
+    <tbody>
+      {% for expediteur, destinataires in regles_expediteur.items() %}
+      <tr><td>{{ expediteur }}</td><td>{{ destinataires | join(", ") }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p><em>Aucune regle par expediteur.</em></p>
+  {% endif %}
+
+  <h2>Par mot-cle</h2>
+  {% if regles_contenu %}
+  <table>
+    <thead><tr><th>Mot-cle</th><th>Destinataires</th></tr></thead>
+    <tbody>
+      {% for mot, destinataires in regles_contenu.items() %}
+      <tr><td>{{ mot }}</td><td>{{ destinataires | join(", ") }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p><em>Aucune regle par mot-cle.</em></p>
+  {% endif %}
+
+  <h2>Si aucune regle ne correspond</h2>
+  <p>L'email n'est <strong>pas transfere</strong>. Un message est affiche dans le terminal de <code>app.py</code>.</p>
+
+  <p><em>Pour modifier ces regles, edite le fichier <code>regles.py</code> et redemarre l'application.</em></p>
+{% endblock %}

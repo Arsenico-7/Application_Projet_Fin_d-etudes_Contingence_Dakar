@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block titre %}Journal des transferts{% endblock %}
+
+{% block contenu %}
+
+<h1>Journal des transferts</h1>
+  <p>Derniers emails transferes automatiquement.</p>
+
+  {% if transferts %}
+  <table>
+    <thead>
+      <tr>
+        <th>Date / heure</th>
+        <th>Expediteur</th>
+        <th>Sujet</th>
+        <th>Destinataires</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for date_heure, expediteur, sujet, destinataires in transferts %}
+      <tr>
+        <td>{{ date_heure }}</td>
+        <td>{{ expediteur }}</td>
+        <td>{{ sujet }}</td>
+        <td>{{ destinataires }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p><em>Aucun transfert enregistre pour le moment.</em></p>
+  {% endif %}
+{% endblock %}

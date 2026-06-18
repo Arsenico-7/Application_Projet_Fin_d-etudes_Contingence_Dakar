@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block titre %}Plan de contingence{% endblock %}</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1a1a2e;
+      background: #f4f6f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #0d1b2a;
+      color: #fff;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+    header h2 {
+      margin: 6px 0 0;
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: #9cc3e5;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 18px;
+      background: #142d4c;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      background: #1d4e89;
+      padding: 10px 28px;
+      border-radius: 6px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      transition: background 0.15s ease-in-out;
+    }
+    nav a:hover {
+      background: #2e6fb8;
+    }
+    main {
+      flex: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      width: 100%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 14px;
+    }
+    th {
+      background: #1d4e89;
+      color: #fff;
+    }
+    code {
+      background: #e8ecf1;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      background: #0d1b2a;
+      color: #cfd8e3;
+      text-align: center;
+      padding: 18px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-size: 1.1rem;
+    }
+    footer span {
+      margin: 0 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
+      <img src="/static/asecna.webp" alt="Logo ASECNA"
+           style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;
+                  border: 3px solid #9cc3e5; box-shadow: 0 2px 8px rgba(0,0,0,0.3);"
+           onerror="this.style.display='none'">
+      <div>
+        <h1 style="margin: 0; font-size: 2.4rem; letter-spacing: 2px; font-weight: 800;">PLAN DE CONTINGENCE</h1>
+        <h2 style="margin: 6px 0 0; font-size: 1.4rem; font-weight: 500; letter-spacing: 4px; color: #9cc3e5;">CENTRE COM&nbsp;: DAKAR</h2>
+      </div>
+       <img src="/static/eamac.jpg" alt="Logo EAMAC"
+           style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;
+                  border: 3px solid #9cc3e5; box-shadow: 0 2px 8px rgba(0,0,0,0.3);"
+           onerror="this.style.display='none'">
+      
+    </div>
+  </header>
+  <nav>
+    <a href="/">JOURNAL</a>
+    <a href="/regles">REGLES</a>
+    <a href="/principe">FONCTIONNEMENT</a>
+    <a href="/apropos">A PROPOS</a>
+  </nav>
+  <main>
+    {% block contenu %}{% endblock %}
+  </main>
+  <footer>
+    <span>ASECNA</span>
+    <span>EAMAC</span>
+    <span>AIBD</span>
+  </footer>
+</body>
+</html>
