@@ -64,22 +64,3 @@ def choisir_destinataires(expediteur: str, sujet: str, corps: str) -> list[str] 
     return None
 
 
-#def choisir_destinataires(expediteur: str, sujet: str, corps: str) -> list[str] | None:
-#    """Decide a qui transferer un email selon l'expediteur et le contenu.
-
-#    Renvoie None si aucune regle ne correspond, ce qui signifie que
-#    l'email ne doit PAS etre transfere.
-#    """
-
-    # On cherche d'abord des mots-cles dans le sujet + corps
-#    contenu = (sujet + " " + corps).lower()
-#    for mot, destinataires in REGLES_CONTENU.items():
-#        if mot in contenu:
-#            return destinataires
-
-    # Sinon, on regarde si l'expediteur exact a une regle
- #   if expediteur in REGLES_EXPEDITEUR:
-  #      return REGLES_EXPEDITEUR[expediteur]
-
-    # Aucune regle ne correspond : pas de transfert
-   # return None
